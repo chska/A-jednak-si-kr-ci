@@ -4,56 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap   -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-
-    <title>JS zarowka - display none/block</title>
+    <title>JS bulb - display none/block</title>
 </head>
 <body>
     <main class="container">
 
-        <!-- zarowki -->
+        
         <div class="d-flex justify-content-center my-5">
-            <img id=zarowka src="zarowka_off.png" alt="wylaczona zarowka">
+            <img id=bulb src="bulb_off.png" alt="turned_off">
         </div>
 
 
-        <!-- pryzcisk zapal/zgaś -->
         <div class="d-flex justify-content-center">
-            <button id="przycisk" class="btn btn-success btn-lg">
+            <button id="pushbutton" class="btn btn-success btn-lg">
             CLICK
             </button>
         </div>
     </main> 
 
-<!-- miejsce na JS -->
+
 
     <script>
-    // kod JS
+
+        var pushbutton = document.querySelector('#pushbutton');
+        var bulb = document.querySelector('#bulb');
 
 
-        // przypisanie przycisku do zmiennej
-        var objPrzycisk = document.querySelector('#przycisk');
-
-        var zarowka = document.querySelector('#zarowka');
-
-            
-        //przypiecie "nasłuchiwacza" do obiektu przycisku
-        //reaguje jak usłyszy event "click"
-        objPrzycisk.addEventListener('click', function(){
-            //instrukcje wykonywane po kliknięciu przycisku
-            console.log('kliknięcie!');
+        pushbutton.addEventListener('click', function(){
+            console.log('click!');
 
 
-            //console.log(zarowka.src);
-
-            //jeśli nasza żarówka ma w src zawarty ciąg znaków "off"
-            if(zarowka.src.match("off")){
-                //to ustaw wartość atrybutu scr równą "zarowka_on.pmg"
-                zarowka.src = "zarowka_on.png";
+            if(bulb.src.match("off")){
+                bulb.src = "bulb_on.png";
             }else{
-                //jeśli nie jest zawart podciąg "off" to ustaw "zarowka_off.pmg"
-                zarowka.src = "zarowka_off.png";
+                bulb.src = "bulb_off.png";
             }
 
         });
